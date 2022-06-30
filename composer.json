@@ -1,0 +1,15 @@
+{
+    "name": "topsdk/topapi",
+    "description": "topapi php sdk",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "Topsdk\\Topapi\\": "src"
+        }
+    },
+    "require": {
+        "php": "^7.4|^8.0"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
