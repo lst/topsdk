@@ -1,7 +1,8 @@
 <?php
 namespace Topsdk\Topapi\Ability1234\Domain;
+use JsonSerializable;
 
-class AlibabaEinvoiceMerchantCreatereqInvoiceItem {
+class AlibabaEinvoiceMerchantCreatereqInvoiceItem implements JsonSerializable{
 
     /**
         总价，格式：100.00； <span style="color:red;font-weight: bold;">当开红票时，该字段为负数</span>
@@ -145,6 +146,22 @@ class AlibabaEinvoiceMerchantCreatereqInvoiceItem {
 
     public function setAmount(string $amount){
         $this->amount = $amount;
+    }
+
+    public function jsonSerialize(){
+        return [
+            'sum_price' => $this->sum_price,
+            'tax' => $this->tax,
+            'price' => $this->price,
+            'item_no' => $this->item_no,
+            'unit' => $this->unit,
+            'item_name' => $this->item_name,
+            'tax_rate' => $this->tax_rate,
+            'row_type' => $this->row_type,
+            'quantity' => $this->quantity,
+            'specification' => $this->specification,
+            'amount' => $this->amount,
+        ];
     }
 
 
