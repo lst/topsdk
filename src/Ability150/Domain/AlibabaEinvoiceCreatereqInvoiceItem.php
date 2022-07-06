@@ -1,7 +1,9 @@
 <?php
 namespace Topsdk\Topapi\Ability150\Domain;
 
-class AlibabaEinvoiceCreatereqInvoiceItem {
+use JsonSerializable;
+
+class AlibabaEinvoiceCreatereqInvoiceItem implements JsonSerializable{
 
     /**
         总价，格式：100.00； <span style="color:red;font-weight: bold;">当开红票时，该字段为负数</span>
@@ -171,6 +173,22 @@ class AlibabaEinvoiceCreatereqInvoiceItem {
 
     public function setZeroRateFlag(string $zeroRateFlag){
         $this->zero_rate_flag = $zeroRateFlag;
+    }
+
+        public function jsonSerialize(){
+        return [
+            'sum_price' => $this->sum_price,
+            'tax' => $this->tax,
+            'price' => $this->price,
+            'item_no' => $this->item_no,
+            'unit' => $this->unit,
+            'item_name' => $this->item_name,
+            'tax_rate' => $this->tax_rate,
+            'row_type' => $this->row_type,
+            'quantity' => $this->quantity,
+            'specification' => $this->specification,
+            'amount' => $this->amount,
+        ];
     }
 
 
